@@ -1,23 +1,23 @@
 import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
+import { mainCarouselData } from './MainCaroselData';
 
 
 
-const items = [
-    <div className="item" data-value="1">1</div>,
-    <div className="item" data-value="2">2</div>,
-    <div className="item" data-value="3">3</div>,
-    <div className="item" data-value="4">4</div>,
-    <div className="item" data-value="5">5</div>,
-];
 
-const MainCarosel = () => (
-    <AliceCarousel
-        mouseTracking
+const MainCarosel = () => {
+
+  const items = mainCarouselData.map((item)=> <img className='cursor-poniter'
+  role='presentation' src={item.image} alt="" />)
+  
+  return(
+     
+        // mouseTracking
         items={items}
-        controlsStrategy="alternate"
-    />
-);
+        // controlsStrategy="alternate"
+     
+  )
+};
 
-export default MainCarosel;
+export default MainCarosel
