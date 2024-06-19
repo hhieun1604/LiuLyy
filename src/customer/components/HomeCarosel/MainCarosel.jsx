@@ -12,11 +12,17 @@ const MainCarosel = () => {
   role='presentation' src={item.image} alt="" />)
   
   return(
-     
+        <AliceCarousel
         // mouseTracking
         items={items}
         // controlsStrategy="alternate"
-     
+        disableButtonsControls
+        autoHeight
+        autoPlay
+        autoPlayStrategy='1000'
+        infinite
+        
+     />
   )
 };
 

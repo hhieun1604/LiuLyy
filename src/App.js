@@ -8,10 +8,12 @@ function App() {
     <div className="App">
       <Navigation/>
       
-    <div>
-      home
-      <HomePage/>
-    </div>
+        <div>
+          home
+          <HomePage/>
+        </div>
+
+
     </div>
   );
 }
