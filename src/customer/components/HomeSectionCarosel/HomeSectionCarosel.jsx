@@ -10,8 +10,10 @@ const HomeSectionCarosel = () => {
     };
 
     const items=[1,1,1,1,1].map((item)=><HomeSectionCard/>)
-  return (
+  return (  
     <div>
+        <div>
+
         <AliceCarousel
         // mouseTracking
         items={items}
@@ -23,8 +25,11 @@ const HomeSectionCarosel = () => {
         infinite
         responsive={responsive}
         
-     />   
+      />   
+     </div>
     </div>
+   
+    
   )
 }
 
