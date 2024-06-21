@@ -3,7 +3,7 @@ import React from 'react'
 const HomeSectionCard = () => {
   return (
     <div className='cursor-poniter flex flex-col items-center bg-while 
-    rounded-lg shadow-lg overflow-hidden w-[15rem] mx-3'>
+    rounded-lg shadow-lg overflow-hidden w-[15rem] mx-3 border border-black'>
 
       <div className='h-[13rem] w-[10rem] '>
         <img className='object-cover object-top w-full h-full' 
