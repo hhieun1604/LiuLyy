@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import AliceCarousel from "react-alice-carousel";
 import HomeSectionCard from "../HomeSectionCard/HomeSectionCard";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
@@ -7,7 +7,8 @@ import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { mens_kurta } from "../../../Data/mens_kurta";
 
 const HomeSectionCarosel = () => {
-  const[activeIndex,setActiveIndex]=useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const carouselRef = useRef(null);
 
   const responsive = {
     0: { items: 1 },
@@ -15,30 +16,36 @@ const HomeSectionCarosel = () => {
     1024: { items: 5.5 },
   };
 
-  const slidePrev=()=>setActiveIndex(activeIndex-1);
-  const slideNext=()=>setActiveIndex(activeIndex+1);
+  const slidePrev = () => {
+    if (carouselRef.current) {
+      carouselRef.current.slidePrev();
+      setActiveIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+    }
+  };
 
-  const syncActiveIndex=({item})=>setActiveIndex(item)
+  const slideNext = () => {
+    if (carouselRef.current) {
+      carouselRef.current.slideNext();
+      setActiveIndex((prevIndex) => Math.min(prevIndex + 1, items.length - 1));
+    }
+  };
 
+  const syncActiveIndex = ({ item }) => setActiveIndex(item);
 
-  const items = mens_kurta.slice(0,10).map((item) => <HomeSectionCard product={item} />);
+  const items = mens_kurta.slice(0, 10).map((item, index) => (
+    <HomeSectionCard key={index} product={item} />
+  ));
   return (
     <div className="border ">
       <div className="relative p-5">
         <AliceCarousel
-          // mouseTracking
-          items={items}
-          // controlsStrategy="alternate"
-          disableButtonsControls
-          autoHeight
-          // autoPlay
-          autoPlayStrategy="1000"
-          infinite
-          responsive={responsive}
-          disableDotsControls
-          onSlideChanged={syncActiveIndex}
-          activeIndex={activeIndex}
-          
+         ref={carouselRef}
+         items={items}
+         disableButtonsControls
+         responsive={responsive}
+         disableDotsControls
+         onSlideChanged={syncActiveIndex}
+         activeIndex={activeIndex}
         />
         { activeIndex !==items.length-5 &&   <Button
             variant="contained"
@@ -65,7 +72,6 @@ const HomeSectionCarosel = () => {
             top: "8rem",
             left: "0rem",
             transform: "translateX(-50%) rotate(90deg)",
-            // transform:"rotate(90deg)",
             bgcolor: "white",
           }}
           aria-label="next"
