@@ -4,9 +4,8 @@ import HomeSectionCard from "../HomeSectionCard/HomeSectionCard";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import { Button } from "@mui/material";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import { mens_kurta } from "../../../Data/mens_kurta";
 
-const HomeSectionCarosel = () => {
+const HomeSectionCarosel = ({data,sectionName}) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const carouselRef = useRef(null);
 
@@ -32,11 +31,12 @@ const HomeSectionCarosel = () => {
 
   const syncActiveIndex = ({ item }) => setActiveIndex(item);
 
-  const items = mens_kurta.slice(0, 10).map((item, index) => (
-    <HomeSectionCard key={index} product={item} />
+  const items = data.slice(0, 10).map((item) => (
+    <HomeSectionCard product={item} />
   ));
   return (
     <div className="border ">
+        <h2 className="text-2x1 font-extrabold text-gray-800 px-5 ">{sectionName}</h2>
       <div className="relative p-5">
         <AliceCarousel
          ref={carouselRef}
