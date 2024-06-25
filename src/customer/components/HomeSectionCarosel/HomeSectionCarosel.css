@@ -1,0 +1,53 @@
+HomeSectionCarosel.css
+.carousel-container {
+  border: 1px solid #ccc;
+}
+
+.carousel-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2d3748;
+  padding-left: 20px;
+}
+
+.carousel-content {
+  position: relative;
+  padding: 20px;
+}
+
+.carousel-button {
+  z-index: 50;
+  background-color: white;
+  position: absolute;
+  top: 8rem;
+  transform: translateX(-50%) rotate(90deg);
+  background-color: white;
+  box-shadow: 0 0 5px cyan, 0 0 25px cyan;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.carousel-button-next {
+  right: 0;
+  transform: translateX(50%) rotate(90deg);
+}
+
+.carousel-button:hover {
+  box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 50px cyan, 0 0 100px cyan, 0 0 200px cyan;
+}
+
+.carousel-icon {
+  transform: rotate(90deg);
+  color: black;
+}
+
+button{
+  box-shadow: 0 0 5px  cyan,
+  0 0 25px cyan;
+}
+
+button:hover {
+  box-shadow: 0 0 5px cyan,
+  0 0 25px cyan, 0 0 50px cyan,
+  0 0 100px cyan, 0 0 200px cyan;
+
+} 

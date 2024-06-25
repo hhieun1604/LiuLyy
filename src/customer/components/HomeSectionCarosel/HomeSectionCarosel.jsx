@@ -68,6 +68,7 @@ const HomeSectionCarosel = ({data,sectionName}) => {
           className="z-50 bg-white"
           onClick={slidePrev}
           sx={{
+              
             position: "absolute",
             top: "8rem",
             left: "0rem",
