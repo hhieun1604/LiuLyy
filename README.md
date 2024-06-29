@@ -6,6 +6,9 @@
 ## 27/06/2024: Bạn bé lại khóc nữa rồi
 ## 28/06/2024: Bạn bé bảo nghỉ chơi 1 hôm :((
 ```sh 
-3h19p Không biết làm gì bỏ ra code.
+3h19p Không biết làm gì bỏ bài ra code.
+```
+```sh 
+3h19p Không biết làm gì bỏ bài ra code.
 ```
 ## ..
